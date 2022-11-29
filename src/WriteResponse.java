@@ -19,14 +19,15 @@ public class WriteResponse {
 		HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 		String responseB = response.body();
 
-			FileWriter file = new FileWriter(
-					"C:\\Users\\user015\\eclipse-workspace\\EvaluationTaskRaqiya\\writefile2.txt");
-			file.write(responseB);
-			file.close();
-			String output = new Scanner(new File("C:\\Users\\user015\\eclipse-workspace\\EvaluationTaskRaqiya\\writefile2.txt")).useDelimiter("\\Z").next();
+		FileWriter file = new FileWriter("C:\\Users\\user015\\eclipse-workspace\\EvaluationTaskRaqiya\\writefile2.txt");
+		file.write(responseB);
+		file.close();
+		String output = new Scanner(
+				new File("C:\\Users\\user015\\eclipse-workspace\\EvaluationTaskRaqiya\\writefile2.txt"))
+				.useDelimiter("\\Z").next();
 		System.out.println("JSON file created");
 		if (responseB.contains("error")) {
-	
+
 			Gson gson = new Gson();
 			ErrorHandler errorhandler = gson.fromJson(responseB, ErrorHandler.class);
 			System.out.println(errorhandler.getError());
@@ -38,7 +39,7 @@ public class WriteResponse {
 		try {
 			FileReader reader = new FileReader(
 					"C:\\Users\\user015\\eclipse-workspace\\EvaluationTaskRaqiya\\writefile2.txt");
-	
+
 			BufferedReader bufferedReader = new BufferedReader(reader);
 
 			String brRead;
@@ -53,6 +54,6 @@ public class WriteResponse {
 			e.printStackTrace();
 
 		}
-		
+
 	}
 }

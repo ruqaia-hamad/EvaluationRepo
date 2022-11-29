@@ -8,52 +8,53 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class SearchFile {
-	
+
 	public static void Search() throws IOException {
-		
-		Scanner sc = new Scanner(System.in);
+		boolean isExit = true;
+		while (isExit) {
+			Scanner sc = new Scanner(System.in);
 
-		File file = new File("C:\\Users\\user015\\eclipse-workspace\\EvaluationTaskRaqiya\\writefile2.txt");
+			File file = new File("C:\\Users\\user015\\eclipse-workspace\\EvaluationTaskRaqiya\\writefile2.txt");
+			Set<String> wordSet = new HashSet<>();
+			String[] words = null;
+			FileReader fileReader = new FileReader(file);
+			BufferedReader br = new BufferedReader(fileReader);
+			String x;
+			System.out.println("Please Enter Word");
 
-		String[] words = null;
-		FileReader fileReader = new FileReader(file);
-		BufferedReader br = new BufferedReader(fileReader);
-		String x;
+			String userinput = sc.next();
+			wordSet.add(userinput);
 
-		System.out.print("Please enter the number of strings you want to enter" + "\n");
-		int userinput = sc.nextInt();
-		Set<String> wordSet = new HashSet<>();
+			int count = 0;
+			while ((x = br.readLine()) != null) {
+				words = x.split(" ");
 
-		System.out.print("Please enter " + userinput + " words" + "\n");
-		for (int i = 0; i < userinput; i++) {
-			String userword = sc.next();
-			wordSet.add(userword);
+				for (String word : words) {
+					if (word.equals(userinput)) {
 
-		}
-		String result = String.join(" ", wordSet);
-		System.out.println(result);
-		int count = 0;
-		while ((x = br.readLine()) != null) {
-			words = x.split(" ");
+						System.out.println("the word is " + word);
+						count++;
 
-			for (String word : words) {
-				if (word.equals(result)) {
-
-					System.out.println("the word is " + result);
-					count++;
+					}
 
 				}
+			}
 
+			if (count != 0) {
+				System.out.println("This word is present for " + count + " Times in the file");
+			} else {
+				System.out.println("This word is not in the file");
+			}
+
+			fileReader.close();
+			System.out.println("if you want to add word to search press 1 and 2 to exit");
+			Integer exit = sc.nextInt();
+			if (exit == 1) {
+				isExit = true;
+			} else {
+				isExit = false;
+				System.out.println("GOOD BYE");
 			}
 		}
-
-		if (count != 0) {
-			System.out.println("This word is present for " + count + " Times in the file");
-		} else {
-			System.out.println("This word is not in the file");
-		}
-
-		fileReader.close();
 	}
-
 }

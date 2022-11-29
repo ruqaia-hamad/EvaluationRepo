@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
-public  class EvaluationTask {
+public class EvaluationTask {
 	public static void main(String[] args) throws IOException, InterruptedException {
 		Scanner sc = new Scanner(System.in);
 		boolean exitMenu = true;
