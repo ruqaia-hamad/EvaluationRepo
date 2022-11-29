@@ -13,11 +13,13 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
-public class EvaluationTask {
+public  class EvaluationTask {
 	public static void main(String[] args) throws IOException, InterruptedException {
 		Scanner sc = new Scanner(System.in);
 		boolean exitMenu = true;
@@ -32,24 +34,19 @@ public class EvaluationTask {
 			case 2:
 
 				WriteResponse.Read();
-			
+
 				break;
 
 			case 3:
-		
-			
+				SearchFile.Search();
 
 				break;
 
 			case 4:
-
-				break;
-
-			case 5:
-		
 				MainMenu.thankMenu();
 				exitMenu = false;
 				break;
+
 			}
 		} while (exitMenu);
 	}

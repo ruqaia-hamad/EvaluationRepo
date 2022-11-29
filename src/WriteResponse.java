@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -6,6 +7,9 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.Scanner;
+
+import com.google.gson.Gson;
 
 public class WriteResponse {
 	public static void Write() throws IOException, InterruptedException {
@@ -14,23 +18,27 @@ public class WriteResponse {
 		HttpRequest request = HttpRequest.newBuilder().uri(URI.create(url)).build();
 		HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 		String responseB = response.body();
-		try {
+
 			FileWriter file = new FileWriter(
-					"C:\\Users\\user015\\eclipse-workspace\\EvaluationTaskRaqiya\\writefile.txt");
+					"C:\\Users\\user015\\eclipse-workspace\\EvaluationTaskRaqiya\\writefile2.txt");
 			file.write(responseB);
 			file.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+			String output = new Scanner(new File("C:\\Users\\user015\\eclipse-workspace\\EvaluationTaskRaqiya\\writefile2.txt")).useDelimiter("\\Z").next();
 		System.out.println("JSON file created");
+		if (responseB.contains("error")) {
+	
+			Gson gson = new Gson();
+			ErrorHandler errorhandler = gson.fromJson(responseB, ErrorHandler.class);
+			System.out.println(errorhandler.getError());
+		}
 
 	}
 
 	public static void Read() {
 		try {
 			FileReader reader = new FileReader(
-					"C:\\Users\\user015\\eclipse-workspace\\EvaluationTaskRaqiya\\writefile.txt");
+					"C:\\Users\\user015\\eclipse-workspace\\EvaluationTaskRaqiya\\writefile2.txt");
+	
 			BufferedReader bufferedReader = new BufferedReader(reader);
 
 			String brRead;
@@ -45,6 +53,6 @@ public class WriteResponse {
 			e.printStackTrace();
 
 		}
-
+		
 	}
 }

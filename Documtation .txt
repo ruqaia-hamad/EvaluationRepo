@@ -1,0 +1,31 @@
+
+menu:
+using switch case menu created .
+case1:
+write in file
+case 2:
+read file
+case 3:
+search in file
+case 4 : 
+exit
+
+consum Api:
+converted the json into java object .
+Data
+time
+GBP
+EUR
+Bpi
+USD
+
+write response in file from the Api .
+read file and convert the json to String .
+-Error Handler :
+to handle APi errors.
+
+-search :
+ask user to input words.
+using Hash Set take unique words only 
+then check how many times it appeared in the txt file.
+
