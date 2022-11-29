@@ -36,6 +36,7 @@ public class WriteResponse {
 			String brRead;
 
 			while ((brRead = bufferedReader.readLine()) != null) {
+
 				System.out.println(brRead);
 			}
 			reader.close();
