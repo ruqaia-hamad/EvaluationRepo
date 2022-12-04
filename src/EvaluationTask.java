@@ -20,7 +20,7 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class EvaluationTask {
-	public static void main(String[] args) throws IOException, InterruptedException {
+	public static void main(String[] args) throws Throwable {
 		Scanner sc = new Scanner(System.in);
 		boolean exitMenu = true;
 		do {
