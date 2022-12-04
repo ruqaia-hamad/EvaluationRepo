@@ -1,6 +1,5 @@
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -36,25 +35,32 @@ public class WriteResponse {
 
 	}
 
-	public static void Read() throws Throwable {
+	public static void Read() {
 		
 		
-		
-		
-		File file = new File(	"C:\\Users\\user015\\eclipse-workspace\\EvaluationTaskRaqiya\\writefile2.txt");
-		ObjectInputStream ois = null;
+		StringBuilder builder = new StringBuilder();
+		String convertToString = " ";
 		try {
-			if (file.isFile()) {
-				ois = new ObjectInputStream(new FileInputStream(file));
-				StringBuilder sb = (StringBuilder) new StringBuilder(ois.readObject().toString());
-				ois.close();
-				System.out.println(sb.toString() + "\n");
+		
+			FileReader reader = new FileReader(
+					"C:\\Users\\user015\\eclipse-workspace\\EvaluationTaskRaqiya\\writefile2.txt");
 
+			BufferedReader bufferedReader = new BufferedReader(reader);
+
+			String brRead;
+
+			while ((brRead = bufferedReader.readLine()) != null) {
+				  builder.append(brRead).append("\n");
+	
+				System.out.println(brRead);
 			}
-		} catch (IOException exception) {
-			System.out.println("An unexpected error is occurred.");
-			exception.printStackTrace();
-		}
-	}
+			reader.close();
 
+		} catch (IOException e) {
+			e.printStackTrace();
+
+		}
+		convertToString =  builder.toString();
+
+	}
 }
