@@ -13,7 +13,7 @@ import java.util.Scanner;
 import com.google.gson.Gson;
 
 public class WriteResponse {
-	public static void Write() throws IOException, InterruptedException {
+	public static void write() throws IOException, InterruptedException {
 		String url = "http://api.coindesk.com/v1/bpi/currentprice.json";
 		HttpClient client = HttpClient.newHttpClient();
 		HttpRequest request = HttpRequest.newBuilder().uri(URI.create(url)).build();
@@ -35,7 +35,7 @@ public class WriteResponse {
 
 	}
 
-	public static void Read() {
+	public static void read() {
 		
 		
 		StringBuilder builder = new StringBuilder();
@@ -62,5 +62,20 @@ public class WriteResponse {
 		}
 		convertToString =  builder.toString();
 
+	}
+	public static void createDirectroy() {
+		
+		String path = "C:\\Users\\user015\\eclipse-workspace\\EvaluationTaskRaqiya\\MoveFromPDF";
+
+		File file2 = new File(path);
+
+		boolean bool = file2.mkdir();
+		if (bool) {
+			System.out.println("Directory created successfully");
+		} else {
+			System.out.println("Sorry couldn’t create specified directory");
+		}
+	
+		
 	}
 }

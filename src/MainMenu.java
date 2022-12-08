@@ -10,8 +10,9 @@ public class MainMenu {
 		System.out.println("================================");
 		System.out.println("|  [1] Write response in file   |");
 		System.out.println("|  [2] Read in file             |");
-		System.out.println("|  [3] Search file for word     |");
-		System.out.println("|  [4] Exit from program        |");
+		System.out.println("|  [3] Create New Directory     |");
+		System.out.println("|  [4] Search file for word     |");
+		System.out.println("|  [5] Exit from program        |");
 		System.out.println("================================");
 		System.out.println("Please Enter your Choice: \n");
 	}

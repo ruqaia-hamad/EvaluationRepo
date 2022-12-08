@@ -28,21 +28,25 @@ public class EvaluationTask {
 			Integer option = sc.nextInt();
 			switch (option) {
 			case 1:
-				WriteResponse.Write();
+				WriteResponse.write();
 				break;
 
 			case 2:
 
-				WriteResponse.Read();
+				WriteResponse.read();
 
 				break;
 
 			case 3:
-				SearchFile.Search();
+				WriteResponse.createDirectroy();
+			
 
+				
 				break;
-
-			case 4:
+			case 4: 
+				SearchFile.Search();
+				break;
+			case 5:
 				MainMenu.thankMenu();
 				exitMenu = false;
 				break;

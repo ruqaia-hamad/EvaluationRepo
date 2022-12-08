@@ -3,6 +3,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -92,7 +96,7 @@ public class SearchFile {
 
 			String userinput2 = null;
 			System.out.print("Please enter the words you want to Search | writ EXIT to stop" + "\n");
-			int count = 0;
+
 			while (sc.hasNext()) {
 				userinput2 = sc.nextLine();
 				if (userinput2.equalsIgnoreCase("EXIT")) {
@@ -108,7 +112,15 @@ public class SearchFile {
 			for (String n : wordsListpdf) {
 				if (br.contains(n)) {
 				     System.out.println("Found word '" + n+ "' in page " + (i + 1));
-				
+			
+				 	File sourcefile = new File("C:\\Users\\user015\\eclipse-workspace\\EvaluationTaskRaqiya\\random.pdf");
+					File targetfile = new File(
+							"C:\\Users\\user015\\eclipse-workspace\\EvaluationTaskRaqiya\\\\MoveFromPDF");
+					Files.copy(sourcefile.toPath(), targetfile.toPath(),
+							StandardCopyOption.REPLACE_EXISTING);
+				}
+				else {
+				     System.out.println(n + "this word not found "   );
 				}
 			}
 
