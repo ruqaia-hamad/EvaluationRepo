@@ -10,5 +10,6 @@
 	<classpathentry kind="lib" path="C:/Users/user015/Downloads/pdfbox-2.0.27.jar"/>
 	<classpathentry kind="lib" path="C:/Users/user015/Downloads/commons-logging-1.1-for-pdfbox.jar/commons-logging-1.1-for-pdfbox.jar"/>
 	<classpathentry kind="lib" path="C:/Users/user015/Downloads/fontbox-2.0.27.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user015/Downloads/itext-2.1.7.jar/itext-2.1.7.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
